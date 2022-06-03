@@ -81,7 +81,6 @@ console.log(`congrats ${playerName} you won this stage!🕺`);
  console.log(`Total points: ${points}`)                     
 } else {
   console.log("you lost, game over!🥲")
-  console.log(`Total points: ${points}`)
   localStorage.removeItem("stage");
   localStorage.removeItem("username");
 localStorage.removeItem("points");
