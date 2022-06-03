@@ -23,7 +23,18 @@ if (result == null) {
   return result;  
 } 
 
+//points function
+const getPoints = () => {
+  let result = localStorage.getItem('points');
+if (result == null) {
+  result = 1;
+}
+  return result;  
+}
+
+//setting default for stage and points.
 let stage = getStage();
+let points = getPoints();
 
 //range function
 function* range(start, end) {
@@ -66,8 +77,12 @@ let playerName = localStorage.getItem('username');
 if(Number(botSelection) == Number(userSelection)) {
 console.log(`congrats ${playerName} you won this stage!🕺`);
   localStorage.setItem('stage', `${Number(stage) + 1}`);
+  localStorage.setItem('points', `${Number(points) + 1}`)
+ console.log(`Total points: ${points}`)                     
 } else {
   console.log("you lost, game over!🥲")
+  console.log(`Total points: ${points}`)
   localStorage.removeItem("stage");
   localStorage.removeItem("username");
+localStorage.removeItem("points");
 }
